@@ -13,7 +13,11 @@ Includes=$(find src -type d | sed 's/^/ -I/')
 Linker_Flags="-l System -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _main -arch arm64"
 Compile_Flags="$Includes"
 
-# $Compiler $Compile_Flags $Src_Folder/input.s $Src_Folder/program.s $Src_Folder/logic.S -o bin/calc
+
+if [ ! -d "bin" ]; then
+  mkdir -p bin/
+  mkdir -p build/obj
+fi
 
 for File in ${Source[*]}; do
   name=${File##*/}
