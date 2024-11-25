@@ -1,0 +1,4 @@
+.equ SYS_EXIT, 0x1
+.equ SYS_WRITE, 0x4
+.equ SYS_READ, 0x3
+
