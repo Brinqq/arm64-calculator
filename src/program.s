@@ -25,7 +25,7 @@ _executable_loop:
   mov x1, sp
   add x1, x1, MAX_USER_BYTES 
   mov x2, MAX_USER_BYTES
-  bl _input_get_user_input1
+  bl _input_get_user_input
   mov x0, sp
   ldr x1, [sp, 0x10]
   bl _utils_print_charbuffer
