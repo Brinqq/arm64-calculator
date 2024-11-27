@@ -1,0 +1,15 @@
+Basic Types: .byte, .hword, .word, .xword, .quad, .float, .double, .asciz, .ascii.
+
+Alignment and Space: .align, .skip, .balign, .space.
+
+Constants and Labels: .equ, .set, .global, .local.
+
+Section Management: .data, .bss, .text, .rodata.
+
+Strings and Data: .string, .struct.
+
+Macros and Includes: .macro, .endm, .include.
+
+Branching and Labels: .label, .error.
+
+Debugging: .debug, .file, .line.
