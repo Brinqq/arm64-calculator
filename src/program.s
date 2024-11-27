@@ -43,7 +43,6 @@ _main:
 
 .bss
 .data
-ts: .ascii "hello world\n"
 
 
 

@@ -48,8 +48,6 @@ user_input_error_read: .ascii "Error while reading user input!\n"
 user_input_mce_error: .ascii "Maximum characters allowed exceeded by user inputed string\n"
 
 .bss
-user_input_buffer: .skip MAX_USER_INPUT_S
-
 .endif
 
 
