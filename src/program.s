@@ -1,8 +1,11 @@
 .include "defines.s"
 .include "input.s"
 .include "utils.s"
+.include "parser.s"
+.include "balloc.s"
 
 .equ MAX_USER_BYTES, 0x10
+
 
 .text
 .global _main
@@ -29,6 +32,8 @@ _executable_loop:
   mov x0, sp
   ldr x1, [sp, 0x10]
   bl _utils_print_charbuffer
+  mov w0, #16
+  bl _balloc
   add sp, sp, #32
   mov x30, x7
   ret
@@ -43,9 +48,6 @@ _main:
 
 .bss
 .data
-
-
-
 
 
     
