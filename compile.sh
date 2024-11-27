@@ -11,7 +11,7 @@ Source=$(find src -name "*.s")
 Includes=$(find src -type d | sed 's/^/ -I/')
 
 Linker_Flags="-l System -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _main -arch arm64"
-Compile_Flags="$Includes"
+Compile_Flags="$Includes -g"
 
 
 if [ ! -d "bin" ]; then
