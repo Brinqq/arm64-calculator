@@ -3,6 +3,7 @@
 .include "utils.s"
 .include "parser.s"
 .include "balloc.s"
+.include "string.s"
 
 .equ MAX_USER_BYTES, 0x10
 
@@ -13,6 +14,7 @@
 
 //using malloc for now intell i get my own dynamic allocator. tiresome challenge tbh
 .extern malloc
+.extern memcpy
 
 _exit:
   mov x0, #3
@@ -35,7 +37,13 @@ _executable_loop:
   mov x0, sp
   ldr x1, [sp, 0x10]
   bl _utils_print_charbuffer
-  mov x0, #2000
+
+  adrp x0, test_string@PAGE
+  add x0, x0, test_string@PAGEOFF
+  mov w1, #13
+  bl _string_new
+  bl _string_delete
+
   ldr x30, [sp, #24]
   add sp, sp, #32
   ret
@@ -47,6 +55,8 @@ _main:
 
 .bss
 .data
+  test_string: .ascii "Hello, World!"
+
 
 
     
