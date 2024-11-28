@@ -22,8 +22,8 @@ _exit:
 //}
 
 _executable_loop:
-  mov x7, x30
   sub sp, sp, #32
+  str x30, [sp, #24]
   mov x0, sp
   mov x1, sp
   add x1, x1, MAX_USER_BYTES 
@@ -34,12 +34,9 @@ _executable_loop:
   bl _utils_print_charbuffer
   mov w0, #16
   bl _balloc
+  ldr x30, [sp, #24]
   add sp, sp, #32
-  mov x30, x7
   ret
-
-  
-   
 
 _main:
   mov x7, #2
