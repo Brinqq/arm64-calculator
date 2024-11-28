@@ -11,6 +11,9 @@
 .global _main
 .align 4
 
+//using malloc for now intell i get my own dynamic allocator. tiresome challenge tbh
+.extern malloc
+
 _exit:
   mov x0, #3
   mov x16, SYS_EXIT
@@ -32,8 +35,7 @@ _executable_loop:
   mov x0, sp
   ldr x1, [sp, 0x10]
   bl _utils_print_charbuffer
-  mov w0, #16
-  bl _balloc
+  mov x0, #2000
   ldr x30, [sp, #24]
   add sp, sp, #32
   ret
